@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "username": "r15",
+        "name": "Jack",
+        "email": "jack.r15@gmail.com",
+        "phonenumber": "9876543211",
+        "gender": "M"
+     },
+     {
+         "id": 2,
+         "username": "r16",
+         "name": "John",
+         "email": "john.r16@gmail.com",
+         "phonenumber": "9876543212",
+         "gender": "M"
+
+     },
+     {
+        "id": 3,
+        "username": "r17",
+        "name": "Jill",
+        "email": "jill.r17@gmail.com",
+        "phonenumber": "9876543213",
+        "gender": "M"
+    
+     },
+     {
+        "id": 4,
+        "username": "r18",
+        "name": "Jade",
+        "email": "jade.r18@gmail.com",
+        "phonenumber": "9876543214",
+        "gender": "M"
+    
+     },
+     {
+        "id": 5,
+        "username": "r19",
+        "name": "James",
+        "email": "james.r19@gmail.com",
+        "phonenumber": "9876543215",
+        "gender": "M"
+    
+     }      
+]

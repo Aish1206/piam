@@ -1,0 +1,32 @@
+
+<div class="login-user">
+    <p> <img class="login-image"src ="internalResources/images/login_page_bg.jpg"/></p>
+    <form name="loginUser">
+    <table class="login-user-table" cellpadding="10" ng-init="captcha()" > 
+       <tr>
+            <td><input type="hidden"  name="id" ng-model="state.id"/></td>
+        </tr>
+        <tr>
+            <td>Username </td>
+            <td><input type="text" placeholder="Username here" name="username" ng-model="piam.uname" required/></td>
+        </tr>
+        <tr>
+            <td>Password </td>
+            <td><input type="password" placeholder="password" name="password" ng-model="piam.password" required/></td>
+        </tr>
+        <tr>
+            <td>Captcha </td>
+            <td><input type="text" min=0 placeholder="" name="captcha" ng-model="piam.mycaptcha" required/></td>
+        </tr>
+        <tr>
+            <td> <input type="button" id="refresh" value="Refresh" ng-click="captcha()"/></td>
+           <td> <input type="text" readonly oncopy="return false" oncut="return false" onpaste="return false" id="mainCaptcha"
+                name="mainCaptcha" /></td>
+        </tr>
+        <tr>
+            <td><input class="primary" type="submit" value="Submit" ng-click="validateValue()" ng-disabled="loginUser.$invalid"/></td>
+        </tr>
+    
+    </table>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="externalResources/js/angular/angular.js"></script>
+        <script src="externalResources/js/angular/angular-route.js"></script>
+        <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+        <script src="internalResources/js/piam.module.js"></script>
+        <script src="internalResources/js/controllers/piamController.js"></script>
+        <script src="internalResources/js/applicationConfig.js"></script>
+        <script src="internalResources/js/services/loginService.js"></script>
+        <link rel="stylesheet" href="externalResources/css/bootstrap/bootstrap.min.css"/>
+        <link rel="stylesheet" href="internalResources/css/index.css">
+    </head>
+    <body class="piam-main" ng-app="mainApp" ng-controller="piamController as piam">
+        <div ng-include="'header.html'">
+        </div>
+        <div ng-include="'sidebar-left.html'"></div>
+     <div class="sidebar-right">
+         <div ng-view></div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+.navbar{
+    margin-bottom: 0px;
+}
+.navbar-brand{
+    color: white;
+}
+li{
+    cursor: pointer;
+}
+.sidebar-left {
+    width: 18%;
+    height: 586px;
+    background-color: black;
+    float: left;
+}
+.sidebar-left a {
+    background-color: black; /* Black background color */
+    color: white; /* White text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.sidebar-left a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.sidebar-left a.active {
+    background-color: green; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+.sidebar-right {
+    width: 82%;
+    height: 586px;
+    float: right;
+    background-image: url("../images/login_bg.png");
+}
+.login-user {
+    height: 58%;
+    width: 60%;
+    margin: auto;
+    margin: top;
+    margin-top: 150px;
+}
+
+.login-user-table{
+   margin-left: 35%;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+.login-image{
+    margin-left: 210px;
+}
+#mainCaptcha {
+    font-size:20px;
+    color:red;
+    background:#000;
+    border:none;
+    padding:10px;
+    width:150px;
+}
+input[type="submit"]:disabled {
+    cursor: not-allowed;
+}
