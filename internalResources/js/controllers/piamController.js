@@ -1,4 +1,4 @@
-mainApp.controller("piamController", function($scope, $location, $http, loginService, $sessionStorage) {
+mainApp.controller("piamController", function($scope, $location, $http, loginService, $window) {
    var vm = this;
     $scope.changeView = function(view) {
         $location.path(view);
@@ -24,6 +24,7 @@ mainApp.controller("piamController", function($scope, $location, $http, loginSer
     $scope.validateValue=function(){
            $scope.mainCaptcha=document.getElementById("mainCaptcha").value;
            $scope.mainCaptcha=$scope.mainCaptcha.replace(/ +/g, "");
+           var flag;
            if(vm.mycaptcha== $scope.mainCaptcha)
            {
                 $http.get("data/credentials.list.json").then(function(response){
@@ -31,25 +32,32 @@ mainApp.controller("piamController", function($scope, $location, $http, loginSer
                     if($scope.profile){
                         for (var i=0;i<$scope.profile.length;i++){
                     if(vm.uname==$scope.profile[i].username && vm.password==$scope.profile[i].password){
-                        alert("Welocme dude");
-                    //    $scope
-                    $sessionStorage.id=$scope.profile[i].id;
-                    alert($sessionStorage.id);
+                        var flag=true;
+                        $window.sessionStorage.setItem("id",$scope.profile[i].id);
+                        break;
                     }
-                    }
-                    } 
                     else{
-                         alert("wrong username or password");
+                        var flag=false;
+                    } 
                     }
-                    
-            
-        
-           
-       
-            });
+                    }
+                     if(flag==true){
+                        $scope.getId = $window.sessionStorage.getItem("id");
+                        alert("welcome dude "+$scope.getId);
+                        $http.get("data/profile.json").then(function(response){
+                            $scope.profileLoginUser=response.data;
+                            $window.sessionStorage.setItem("name",$scope.profileLoginUser[$scope.getId].name);
+                            $scope.name=$window.sessionStorage.getItem("name");
+                        });
+                        $location.path('/myProfile');
+                     }
+                     else{
+                         alert("wrong username or password");
+                     }
+             });
            }
            else{
-               alert("please enter correct captcha")
+               alert("please enter correct captcha");
            }
     };
 });

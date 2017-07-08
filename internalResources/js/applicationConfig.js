@@ -12,7 +12,10 @@ mainApp.config(function($routeProvider){
     .when("/signUp",{
         templateUrl: "partialPages/signUp.html"
     })
+    .when("/myProfile",{
+        templateUrl: "partialPages/myProfile.html"
+    })
     .otherwise({
         templateUrl: "partialPages/home.html"
-    });
+    })
 });
