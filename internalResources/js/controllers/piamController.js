@@ -1,6 +1,15 @@
-mainApp.controller("piamController", function($scope, $location, $http, loginService, $window) {
+mainApp.controller("piamController", function($scope, $location, $http, loginService, $sessionStorage, $localStorage) {
    var vm = this;
-    $scope.changeView = function(view) {
+   //var flag;  
+  //$localStorage.loginStat;
+   if($sessionStorage.loginStat==0){
+        $scope.headerTemplate = 'header_login.html'
+   }
+   else{
+        $scope.headerTemplate = 'header.html'
+   }
+    
+    $scope.changeView = function(view) {  
         $location.path(view);
     };
     $scope.captcha= function(){
@@ -25,7 +34,7 @@ mainApp.controller("piamController", function($scope, $location, $http, loginSer
            $scope.mainCaptcha=document.getElementById("mainCaptcha").value;
            $scope.mainCaptcha=$scope.mainCaptcha.replace(/ +/g, "");
            var flag;
-           if(vm.mycaptcha== $scope.mainCaptcha)
+           if(vm.mycaptcha!= $scope.mainCaptcha)
            {
                 $http.get("data/credentials.list.json").then(function(response){
                     $scope.profile=response.data;
@@ -33,7 +42,7 @@ mainApp.controller("piamController", function($scope, $location, $http, loginSer
                         for (var i=0;i<$scope.profile.length;i++){
                     if(vm.uname==$scope.profile[i].username && vm.password==$scope.profile[i].password){
                         var flag=true;
-                        $window.sessionStorage.setItem("id",$scope.profile[i].id);
+                           $sessionStorage.id=$scope.profile[i].id;
                         break;
                     }
                     else{
@@ -42,14 +51,17 @@ mainApp.controller("piamController", function($scope, $location, $http, loginSer
                     }
                     }
                      if(flag==true){
-                        $scope.getId = $window.sessionStorage.getItem("id");
-                        alert("welcome dude "+$scope.getId);
+                        $sessionStorage.loginStat=0;
+                        $scope.getId =  $sessionStorage.id;
+                        $scope.auth=loginService.loginStatus($scope.getId);
+                        $scope.headerTemplate = $scope.auth ? 'header.html' : 'header_login.html';   
                         $http.get("data/profile.json").then(function(response){
-                            $scope.profileLoginUser=response.data;
-                            $window.sessionStorage.setItem("name",$scope.profileLoginUser[$scope.getId].name);
-                            $scope.name=$window.sessionStorage.getItem("name");
+                            $scope.profileLoginUser = response.data;
+                            $sessionStorage.getName = $scope.profileLoginUser[$scope.getId-1].name;
+                            alert("Welcome "+$sessionStorage.getName);
+                            $scope.name=$sessionStorage.getName;
                         });
-                        $location.path('/myProfile');
+                        $location.path('/myProfile'); 
                      }
                      else{
                          alert("wrong username or password");

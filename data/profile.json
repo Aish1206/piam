@@ -42,5 +42,14 @@
         "phonenumber": "9876543215",
         "gender": "M"
     
+     },   
+     {
+        "id": 6,
+        "username": "aaa",
+        "name": "Jane",
+        "email": "jane@gmail.com",
+        "phonenumber": "9876543216",
+        "gender": "F"
+    
      }      
 ]

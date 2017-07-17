@@ -9,10 +9,12 @@
                 <li><a data-ng-click="changeView('/services')">Services</a></li>
                 <li><a data-ng-click="changeView('/ourTeam')">Our Team</a></li>
             </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a data-ng-click="changeView('/signUp')"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a data-ng-click="changeView('/login')"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <div ng-controller="profileController">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a data-ng-click="changeView('/signUp')"><span class="glyphicon glyphicon-user" ng-model="name"> Welcome {{name}}</span></a></li>
+                    <li><a data-ng-click="changeView('/login')"><span class="glyphicon glyphicon-log-in"></span> Sign out</a></li>
                 </ul>
+             </div>
         </div>
     </nav>
 </div>

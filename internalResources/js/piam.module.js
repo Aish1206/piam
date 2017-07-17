@@ -1,1 +1,1 @@
- var mainApp = angular.module("mainApp", ['ngRoute','ngStorage']);
+ var mainApp = angular.module("mainApp", ['ngRoute','ngStorage', 'ui.bootstrap', 'ngAnimate', 'ngSanitize']);
