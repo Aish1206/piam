@@ -15,6 +15,10 @@ mainApp.config(function($routeProvider){
     .when("/myProfile",{
         templateUrl: "partialPages/myProfile.html"
     })
+     .when("/signOut",{
+        templateUrl: "partialPages/signOut.html",
+       // controller: "signOutController"
+    })
     .otherwise({
         templateUrl: "partialPages/home.html"
     })

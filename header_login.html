@@ -1,18 +1,18 @@
-<div class="header">
+<div class="header" ng-controller="headerController as tab">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <p class="navbar-brand">PIAM</p> 
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#!/">Home</a></li>
-                <li><a data-ng-click="changeView('/services')">Services</a></li>
-                <li><a data-ng-click="changeView('/ourTeam')">Our Team</a></li>
+               <li ng-class="{active:tab.isSet(1)}"><a href="#!/" data-ng-click="tab.setTab(1)">Home</a></li>
+                <li ng-class="{active:tab.isSet(2)}"><a data-ng-click="changeView('/services');tab.setTab(2)">Services</a></li>
+                <li ng-class="{active:tab.isSet(3)}"><a data-ng-click="changeView('/ourTeam');tab.setTab(3)">Our Team</a></li>
             </ul>
             <div ng-controller="profileController">
                <ul class="nav navbar-nav navbar-right">
-                    <li><a data-ng-click="changeView('/signUp')"><span class="glyphicon glyphicon-user" ng-model="name"> Welcome {{name}}</span></a></li>
-                    <li><a data-ng-click="changeView('/login')"><span class="glyphicon glyphicon-log-in"></span> Sign out</a></li>
+                    <li ng-class="{active:tab.isSet(4)}"><a data-ng-click="changeView('/myProfile');tab.setTab(4)"><span class="glyphicon glyphicon-user" ng-model="name"> Welcome {{name}}</span></a></li>
+                    <li ng-class="{active:tab.isSet(5)}"><a data-ng-click="changeView('/signOut');tab.setTab(5)"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
                 </ul>
              </div>
         </div>
